@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Param } from '@nestjs/common';
+import { Observable, of } from 'rxjs';
 
 @Controller('products')
 export class ProductsController {
@@ -7,11 +8,12 @@ export class ProductsController {
     return 'This route creates products';
   }
   @Get()
-  findAllProducts(): string {
-    return 'This class returns all products';
+  findAllProducts(): Observable<any[]> {
+    return of([]);
   }
   @Get(':id')
-  findProductById(@Param() params): string {
-    return `This method returns a product of id #${params.id} by id`;
+  async findProductById(@Param() params): Promise<any[]> {
+    console.log(params.id);
+    return [];
   }
 }
