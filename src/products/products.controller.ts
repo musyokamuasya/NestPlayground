@@ -1,9 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 
 @Controller('products')
 export class ProductsController {
+  @Post()
+  createProducts(): string {
+    return 'This route creates products';
+  }
   @Get()
-  findAll(): string {
+  findAllProducts(): string {
     return 'This class returns all products';
   }
 }
