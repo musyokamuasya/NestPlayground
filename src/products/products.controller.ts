@@ -1,10 +1,12 @@
-import { Controller, Get, Post, Param } from '@nestjs/common';
+import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
+import { CreateProductsDto } from './products.dto';
 
 @Controller('products')
 export class ProductsController {
   @Post()
-  createProducts(): string {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  createProducts(@Body() createProductsDto: CreateProductsDto) {
     return 'This route creates products';
   }
   //   Observable used to return a stream of data using rxjs
