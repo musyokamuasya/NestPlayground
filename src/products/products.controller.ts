@@ -1,13 +1,16 @@
 import { Controller, Get, Post, Param, Body } from '@nestjs/common';
 import { Observable, of } from 'rxjs';
 import { CreateProductsDto } from './products.dto';
+import { Product } from './products.interface';
+import { ProductService } from './products.service';
 
 @Controller('products')
 export class ProductsController {
+  constructor(private productService: ProductService) {}
   @Post()
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  createProducts(@Body() createProductsDto: CreateProductsDto) {
-    return 'This route creates products';
+  async createProducts(@Body() createProductsDto: CreateProductsDto) {
+    this.productService.createProducts(createProductsDto);
   }
   //   Observable used to return a stream of data using rxjs
   @Get()
