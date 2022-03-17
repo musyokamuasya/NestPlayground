@@ -1,7 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import {} from './products.interface';
+import { Product } from './products.interface';
 
-@Injectable
+@Injectable()
 export class ProductService {
-  private readonly product: Product;
+  private readonly product: Product[] = [];
+  createProducts(product: Product) {
+    this.product.push(product);
+  }
+  findAllProducts(): Product[] {
+    return this.product;
+  }
 }
