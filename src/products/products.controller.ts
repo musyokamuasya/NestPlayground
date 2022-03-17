@@ -15,7 +15,7 @@ export class ProductsController {
   //   Observable used to return a stream of data using rxjs
   @Get()
   findAllProducts(): Observable<any[]> {
-    return of([]);
+    return of(this.productService.findAllProducts());
   }
   //   promises uses to return one shot data
   @Get(':id')
