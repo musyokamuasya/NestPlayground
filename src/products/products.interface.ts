@@ -1,4 +1,4 @@
-export class CreateProductsDto {
+export interface Product {
   name: string;
   description: string;
   brand: string;
